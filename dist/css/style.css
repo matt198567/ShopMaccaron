@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,regular,500,600,700,800&display=swap);
 @font-face {
@@ -572,13 +573,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
   position: absolute;
   top: .9375rem;
   left: 0;
-  width: 11.25rem;
+  width: 8.75rem;
   height: 1.25rem;
+  color: #fff;
   background-color: #ff4d6d
+}
+.shares__label--mod {
+  width: 3.125rem
+}
+.shares__label::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -.9375rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-top: .625rem solid #ff4d6d;
+  border-bottom: .625rem solid #ff4d6d;
+  border-left: .625rem solid #ff4d6d;
+  border-right: .625rem solid transparent
 }
 .shares__text {
   display: flex;
@@ -586,19 +602,20 @@ body {
   justify-content: center;
   color: #fff;
   background-color: #ff4d6d;
-  height: 6.25rem;
-  padding: 1.25rem
+  padding: 1.25rem;
+  min-height: 6.25rem
 }
 .shares__dotts {
   display: flex;
   justify-content: center;
-  gap: .9375rem;
+  gap: .625rem;
+  margin-top: 1.25rem;
   -webkit-transform: translate(0,10%);
   transform: translate(0,10%)
 }
 .shares__dotts .swiper-pagination-bullet {
-  width: 1.25rem;
-  height: 1.875rem;
+  width: .75rem;
+  height: .75rem;
   position: relative;
   cursor: pointer;
   transition: all .3s ease 0s
@@ -606,7 +623,7 @@ body {
 .shares__dotts .swiper-pagination-bullet::after {
   content: "";
   position: absolute;
-  height: .125rem;
+  height: .75rem;
   width: 100%;
   top: 50%;
   -webkit-transform: translate(0,-50%);
@@ -617,26 +634,59 @@ body {
 .shares__dotts .swiper-pagination-bullet::before {
   content: "";
   background-color: #e7426a;
-  width: .625rem;
-  height: .625rem;
-  top: 50%;
+  width: 100%;
+  height: 100%;
+  top: 0;
   left: 0;
-  -webkit-transform: translate(0,-50%);
-  transform: translate(0,-50%);
-  border-radius: 50%;
   position: absolute;
-  opacity: 0
+  opacity: 0;
+  transition: opacity .3s ease 0s
 }
 .shares__dotts .swiper-pagination-bullet-active {
-  width: 1.875rem
+  width: .75rem
 }
 .shares__dotts .swiper-pagination-bullet-active::after {
   background-color: #e7426a
 }
 .shares__dotts .swiper-pagination-bullet-active::before {
-  opacity: 1;
-  transition: left 3s linear 0s;
-  left: 1.25rem
+  opacity: 1
+}
+.holidays__title {
+  text-align: center
+}
+.holidays__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(10.625rem,1fr));
+  gap: 1.875rem;
+  padding-left: 3.125rem;
+  padding-right: 3.125rem
+}
+.holidays__inner {
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+  min-height: 100%
+}
+.holidays__image {
+  position: relative
+}
+.holidays__image--mod::before {
+  content: url(../img/holidays/cap.svg);
+  position: absolute;
+  top: -3.25rem;
+  left: 1.25rem;
+  scale: .9
+}
+.holidays__image img {
+  width: 4.375rem;
+  height: 4.375rem
+}
+.holidays__text {
+  font-family: Montserrat,sans-serif;
+  font-size: .875rem;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center
 }
 .swiper {
   overflow: hidden
@@ -667,6 +717,11 @@ body {
 }
 .swiper-button-lock {
   display: none!important
+}
+@media (min-width:29.99875em) {
+  .holidays__inner {
+    flex-direction: column
+  }
 }
 @media (min-width:61.99875em) {
   .hero__image {
@@ -717,7 +772,7 @@ body {
     padding-top: 5rem
   }
   .services {
-    padding-bottom: 2.5rem
+    padding-bottom: 1.25rem
   }
   .services__link {
     font-size: 1.25rem
@@ -726,13 +781,25 @@ body {
     padding-top: 2.5rem
   }
   .shares {
-    padding-bottom: 2.5rem
+    padding-bottom: 1.25rem
   }
   .shares__title {
     margin-bottom: 3.125rem
   }
   .shares__label {
-    font-size: 1rem
+    font-size: .875rem
+  }
+  .holidays {
+    padding-top: 2.5rem
+  }
+  .holidays {
+    padding-bottom: 2.5rem
+  }
+  .holidays__title {
+    margin-bottom: 3.75rem
+  }
+  .holidays__text {
+    max-width: 10.625rem
   }
 }
 @media (max-width:30em) {
@@ -781,7 +848,7 @@ body {
     padding-top: 1.25rem
   }
   .services {
-    padding-bottom: 1.25rem
+    padding-bottom: .625rem
   }
   .services__link {
     font-size: .875rem
@@ -790,13 +857,25 @@ body {
     padding-top: 1.25rem
   }
   .shares {
-    padding-bottom: 1.25rem
+    padding-bottom: .625rem
   }
   .shares__title {
     margin-bottom: 1.25rem
   }
   .shares__label {
     font-size: .75rem
+  }
+  .holidays {
+    padding-top: 1.25rem
+  }
+  .holidays {
+    padding-bottom: 1.25rem
+  }
+  .holidays__title {
+    margin-bottom: 2.5rem
+  }
+  .holidays__text {
+    max-width: 9.375rem
   }
 }
 @media (max-width:64.375em) {
@@ -1016,6 +1095,14 @@ body {
     background: linear-gradient(to bottom left,#fdd5cd 0 50%,rgba(253,213,205,.6784313725) 50% 100%)
   }
 }
+@media (max-width:29.99875em) {
+  .holidays__list li:nth-last-child(-n+3) {
+    display: none
+  }
+  .holidays__inner {
+    justify-content: center
+  }
+}
 @media (min-width:20em) and (max-width:81.25em) {
   @supports (font-size:clamp(1.5rem ,1.1326530612rem + 1.8367346939vw ,2.625rem)) {
     .title {
@@ -1137,14 +1224,14 @@ body {
       padding-top: calc(1.25rem + 3.75 * (100vw - 20rem)/ 61.25)
     }
   }
-  @supports (padding-bottom:clamp(1.25rem ,0.8418367347rem + 2.0408163265vw ,2.5rem)) {
+  @supports (padding-bottom:clamp(0.625rem ,0.4209183673rem + 1.0204081633vw ,1.25rem)) {
     .services {
-      padding-bottom: clamp(1.25rem ,.8418367347rem + 2.0408163265vw ,2.5rem)
+      padding-bottom: clamp(.625rem ,.4209183673rem + 1.0204081633vw ,1.25rem)
     }
   }
-  @supports not (padding-bottom:clamp(1.25rem ,0.8418367347rem + 2.0408163265vw ,2.5rem)) {
+  @supports not (padding-bottom:clamp(0.625rem ,0.4209183673rem + 1.0204081633vw ,1.25rem)) {
     .services {
-      padding-bottom: calc(1.25rem + 1.25 * (100vw - 20rem)/ 61.25)
+      padding-bottom: calc(.625rem + .625 * (100vw - 20rem)/ 61.25)
     }
   }
   @supports (font-size:clamp(0.875rem ,0.7525510204rem + 0.612244898vw ,1.25rem)) {
@@ -1167,14 +1254,14 @@ body {
       padding-top: calc(1.25rem + 1.25 * (100vw - 20rem)/ 61.25)
     }
   }
-  @supports (padding-bottom:clamp(1.25rem ,0.8418367347rem + 2.0408163265vw ,2.5rem)) {
+  @supports (padding-bottom:clamp(0.625rem ,0.4209183673rem + 1.0204081633vw ,1.25rem)) {
     .shares {
-      padding-bottom: clamp(1.25rem ,.8418367347rem + 2.0408163265vw ,2.5rem)
+      padding-bottom: clamp(.625rem ,.4209183673rem + 1.0204081633vw ,1.25rem)
     }
   }
-  @supports not (padding-bottom:clamp(1.25rem ,0.8418367347rem + 2.0408163265vw ,2.5rem)) {
+  @supports not (padding-bottom:clamp(0.625rem ,0.4209183673rem + 1.0204081633vw ,1.25rem)) {
     .shares {
-      padding-bottom: calc(1.25rem + 1.25 * (100vw - 20rem)/ 61.25)
+      padding-bottom: calc(.625rem + .625 * (100vw - 20rem)/ 61.25)
     }
   }
   @supports (margin-bottom:clamp(1.25rem ,0.637755102rem + 3.0612244898vw ,3.125rem)) {
@@ -1187,14 +1274,54 @@ body {
       margin-bottom: calc(1.25rem + 1.875 * (100vw - 20rem)/ 61.25)
     }
   }
-  @supports (font-size:clamp(0.75rem ,0.6683673469rem + 0.4081632653vw ,1rem)) {
+  @supports (font-size:clamp(0.75rem ,0.7091836735rem + 0.2040816327vw ,0.875rem)) {
     .shares__label {
-      font-size: clamp(.75rem ,.6683673469rem + .4081632653vw ,1rem)
+      font-size: clamp(.75rem ,.7091836735rem + .2040816327vw ,.875rem)
     }
   }
-  @supports not (font-size:clamp(0.75rem ,0.6683673469rem + 0.4081632653vw ,1rem)) {
+  @supports not (font-size:clamp(0.75rem ,0.7091836735rem + 0.2040816327vw ,0.875rem)) {
     .shares__label {
-      font-size: calc(.75rem + .25 * (100vw - 20rem)/ 61.25)
+      font-size: calc(.75rem + .125 * (100vw - 20rem)/ 61.25)
+    }
+  }
+  @supports (padding-top:clamp(1.25rem ,0.8418367347rem + 2.0408163265vw ,2.5rem)) {
+    .holidays {
+      padding-top: clamp(1.25rem ,.8418367347rem + 2.0408163265vw ,2.5rem)
+    }
+  }
+  @supports not (padding-top:clamp(1.25rem ,0.8418367347rem + 2.0408163265vw ,2.5rem)) {
+    .holidays {
+      padding-top: calc(1.25rem + 1.25 * (100vw - 20rem)/ 61.25)
+    }
+  }
+  @supports (padding-bottom:clamp(1.25rem ,0.8418367347rem + 2.0408163265vw ,2.5rem)) {
+    .holidays {
+      padding-bottom: clamp(1.25rem ,.8418367347rem + 2.0408163265vw ,2.5rem)
+    }
+  }
+  @supports not (padding-bottom:clamp(1.25rem ,0.8418367347rem + 2.0408163265vw ,2.5rem)) {
+    .holidays {
+      padding-bottom: calc(1.25rem + 1.25 * (100vw - 20rem)/ 61.25)
+    }
+  }
+  @supports (margin-bottom:clamp(2.5rem ,2.0918367347rem + 2.0408163265vw ,3.75rem)) {
+    .holidays__title {
+      margin-bottom: clamp(2.5rem ,2.0918367347rem + 2.0408163265vw ,3.75rem)
+    }
+  }
+  @supports not (margin-bottom:clamp(2.5rem ,2.0918367347rem + 2.0408163265vw ,3.75rem)) {
+    .holidays__title {
+      margin-bottom: calc(2.5rem + 1.25 * (100vw - 20rem)/ 61.25)
+    }
+  }
+  @supports (max-width:clamp(9.375rem ,8.9668367347rem + 2.0408163265vw ,10.625rem)) {
+    .holidays__text {
+      max-width: clamp(9.375rem ,8.9668367347rem + 2.0408163265vw ,10.625rem)
+    }
+  }
+  @supports not (max-width:clamp(9.375rem ,8.9668367347rem + 2.0408163265vw ,10.625rem)) {
+    .holidays__text {
+      max-width: calc(9.375rem + 1.25 * (100vw - 20rem)/ 61.25)
     }
   }
 }
